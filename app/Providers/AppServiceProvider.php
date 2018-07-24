@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Providers;
+
+use App\Models\Admins;
+use App\Policies\AdminPolicy;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+
+        Schema::defaultStringLength(191);
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+    protected $policies=[
+        'App\Model'=>'App\policies\ModelPicy',
+        Admins::class=>AdminPolicy::class
+    ];
+
+
+}
